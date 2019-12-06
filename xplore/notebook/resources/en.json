@@ -1,0 +1,4 @@
+{
+  "headline": "# xPlore: Automatic Explorative Data Analysis",
+  "introduction": "xPlore is a tool for automatic generation of explorative data analysis reports. Many of the stages of explorative data analysis have a repetitive nature and can be automated. This notebook is generated automatically using xPlore and can be used as a template for further explorative data analysis steps."
+}

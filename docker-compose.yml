@@ -1,0 +1,10 @@
+version: "3.4"
+services:
+  xplore:
+    image: pasmod/xplore:newest
+    build:
+      context: .
+    volumes:
+      - .:/opt/app
+    ports:
+      - 8888:8888
