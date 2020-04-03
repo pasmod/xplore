@@ -15,6 +15,13 @@ xPlore is a Python library to automate this process. Given a data set, xPlore au
 
 xPlore is by no means intends to replace the create work of a data scientist! This library is still in early phases of development, so contributions are very welcomed.
 
+<p align="center">
+  <kbd>
+    <img src="animation.gif">
+  </kbd>
+</p>
+
+
 ## Key Features
 
 * Automatic Generation of a Jupyter notebook for EDA
