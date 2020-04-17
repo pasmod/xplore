@@ -1,9 +1,9 @@
 import inspect
 
-from xplore.exploration.builder import ExplorationBuilder
+from xplore.exploration.builder import SimpleExploration
 
 
-class PairwiseCorrelationBetweenColumns(ExplorationBuilder):
+class PairwiseCorrelationBetweenColumns(SimpleExploration):
     def build_name(self):
         super().build_name("pairwise_correlation_between_columns")
 

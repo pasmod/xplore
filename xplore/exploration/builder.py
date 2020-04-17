@@ -4,7 +4,7 @@ from abc import ABC, abstractmethod
 from xplore.exploration.utils import get_function_body
 
 
-class Builder(ABC):
+class Exploration(ABC):
     def __init__(self):
         self.name = None
         self.title = None
@@ -19,7 +19,7 @@ class Builder(ABC):
         self.title = title
 
 
-class ExplorationBuilder(Builder):
+class SimpleExploration(Exploration):
     def __init__(self):
         self.implementation = None
         self.executable = None
@@ -33,9 +33,9 @@ class ExplorationBuilder(Builder):
         self.executable = textwrap.dedent(get_function_body(executable))
 
 
-class PlotableExplorationBuilder(ExplorationBuilder):
+class PlotableExploration(SimpleExploration):
     def __init__(self):
-        super(PlotableExplorationBuilder, self).__init__()
+        super(PlotableExploration, self).__init__()
         self.plot_implementation = None
         self.plot_executable = None
 
@@ -48,9 +48,9 @@ class PlotableExplorationBuilder(ExplorationBuilder):
         self.plot_executable = textwrap.dedent(get_function_body(plot_executable))
 
 
-class PlotableBuilder(Builder):
+class PlotOnlyExploration(Exploration):
     def __init__(self):
-        super(PlotableBuilder, self).__init__()
+        super(PlotOnlyExploration, self).__init__()
         self.plot_implementation = None
         self.plot_executable = None
 
@@ -71,11 +71,11 @@ class Director:
         self._builder = builder
         self._builder.build_name()
         self._builder.build_title()
-        if isinstance(self._builder, ExplorationBuilder):
+        if isinstance(self._builder, SimpleExploration):
             self._builder.build_implementation()
             self._builder.build_executable()
-        if isinstance(self._builder, PlotableExplorationBuilder) or isinstance(
-            self._builder, PlotableBuilder
+        if isinstance(self._builder, PlotableExploration) or isinstance(
+            self._builder, PlotOnlyExploration
         ):
             self._builder.build_plot_implementation()
             self._builder.build_plot_executable()

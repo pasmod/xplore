@@ -1,9 +1,9 @@
 import inspect
 
-from xplore.exploration.builder import PlotableBuilder
+from xplore.exploration.builder import PlotOnlyExploration
 
 
-class PairwiseScatterPlots(PlotableBuilder):
+class PairwiseScatterPlots(PlotOnlyExploration):
     def __init__(self, target):
         super(PairwiseScatterPlots, self).__init__()
         self.target = target

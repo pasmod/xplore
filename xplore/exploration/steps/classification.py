@@ -1,9 +1,9 @@
 import inspect
 
-from xplore.exploration.builder import PlotableExplorationBuilder
+from xplore.exploration.builder import PlotableExploration
 
 
-class DistributionOfTargetVariable(PlotableExplorationBuilder):
+class DistributionOfTargetVariable(PlotableExploration):
     def __init__(self, target):
         super(DistributionOfTargetVariable, self).__init__()
         self.target = target

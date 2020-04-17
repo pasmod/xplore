@@ -1,10 +1,10 @@
 import inspect
 
-from xplore.exploration.builder import ExplorationBuilder
+from xplore.exploration.builder import SimpleExploration
 from xplore.exploration.utils import get_function_body
 
 
-class Shape(ExplorationBuilder):
+class Shape(SimpleExploration):
     def build_name(self):
         super().build_name("shape")
 
@@ -25,7 +25,7 @@ class Shape(ExplorationBuilder):
         super().build_executable(executable)
 
 
-class Read(ExplorationBuilder):
+class Read(SimpleExploration):
     def __init__(self, path):
         super(Read, self).__init__()
         self.path = path
@@ -53,7 +53,7 @@ class Read(ExplorationBuilder):
         super().build_executable(executable)
 
 
-class Head(ExplorationBuilder):
+class Head(SimpleExploration):
     def build_name(self):
         super().build_name("head")
 
@@ -74,7 +74,7 @@ class Head(ExplorationBuilder):
         super().build_executable(executable)
 
 
-class ColumnTypes(ExplorationBuilder):
+class ColumnTypes(SimpleExploration):
     def build_name(self):
         super().build_name("column_types")
 

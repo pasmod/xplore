@@ -5,9 +5,9 @@ import nbformat as nbf
 from nbconvert.preprocessors import ExecutePreprocessor
 
 from xplore.exploration.builder import (
-    ExplorationBuilder,
-    PlotableBuilder,
-    PlotableExplorationBuilder,
+    SimpleExploration,
+    PlotOnlyExploration,
+    PlotableExploration,
 )
 
 
@@ -50,8 +50,8 @@ class Notebook:
             title = exploration.title
             if title:
                 nb["cells"].append(markdown_cell(title))
-            if isinstance(exploration, ExplorationBuilder) or isinstance(
-                exploration, PlotableExplorationBuilder
+            if isinstance(exploration, SimpleExploration) or isinstance(
+                exploration, PlotableExploration
             ):
                 implementation = exploration.implementation
                 if implementation:
@@ -59,12 +59,12 @@ class Notebook:
                 executable = exploration.executable
                 if executable:
                     nb["cells"].append(code_cell(executable))
-            if isinstance(exploration, PlotableExplorationBuilder):
+            if isinstance(exploration, PlotableExploration):
                 plot_implementation = exploration.plot_implementation
                 nb["cells"].append(code_cell(plot_implementation))
                 plot_executable = exploration.plot_executable
                 nb["cells"].append(code_cell(plot_executable))
-            if isinstance(exploration, PlotableBuilder):
+            if isinstance(exploration, PlotOnlyExploration):
                 plot_implementation = exploration.plot_implementation
                 nb["cells"].append(code_cell(plot_implementation))
                 plot_executable = exploration.plot_executable

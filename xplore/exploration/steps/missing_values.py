@@ -1,9 +1,9 @@
 import inspect
 
-from xplore.exploration.builder import ExplorationBuilder
+from xplore.exploration.builder import SimpleExploration
 
 
-class PercentageOfMissingValuesInColumns(ExplorationBuilder):
+class PercentageOfMissingValuesInColumns(SimpleExploration):
     def build_name(self):
         super().build_name("percentage_of_missing_values_in_columns")
 
