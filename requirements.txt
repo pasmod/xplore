@@ -6,7 +6,7 @@ ipywidgets==7.5.1
 # Documentation
 mkdocs==1.0.4
 mkdocs-material==4.6.2
-pygments==2.5.2
+pygments==2.7.4
 
 # Testing
 pytest==5.3.4 # library for testing
